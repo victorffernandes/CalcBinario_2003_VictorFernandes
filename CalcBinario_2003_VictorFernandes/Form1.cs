@@ -12,11 +12,11 @@ namespace CalcBinario_2003_VictorFernandes
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
-            Binary b = new Binary("1000");
-            Console.WriteLine(b.onBinary + ":" + b.onDecimal);
+            Console.WriteLine(Converter.binaryPlus("1000","1"));
         }
     }
 }
