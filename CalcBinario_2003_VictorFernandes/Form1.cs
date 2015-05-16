@@ -16,7 +16,7 @@ namespace CalcBinario_2003_VictorFernandes
         public Form1()
         {
             InitializeComponent();
-            Console.WriteLine(Converter.binaryPlus("1000","1"));
+            Console.WriteLine(Converter.binaryMultiply("11","100"));
         }
     }
 }

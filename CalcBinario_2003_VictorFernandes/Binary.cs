@@ -8,51 +8,106 @@ namespace CalcBinario_2003_VictorFernandes
 {
     public class Converter
     {
-        public static string binaryPlus(string ele1, string ele2)
+
+        public static string binaryMultiply(string str1 ,string str2)
         {
-            char[] e1 = ele1.ToCharArray();
-            char[] e2 = ele2.ToCharArray();
-            Array.Reverse(e1);
-            Array.Reverse(e2);
-            string result = "";
-            string overflow = "";
-
-
-            for(int i = 0;i < Math.Max(e1.Length,e2.Length) ;i++)
+            string result = str2;
+            for(int i = 0; i < binaryToDecimal(str1) - 1;i++)
             {
-                if ((e1.Length  <= i) || (e2.Length  <= i))
-                {
-                    if ((e1.Length < i) && (e1.Length < e2.Length)) { result += e2[i];  }
+                result = binaryPlus(str2, result);
 
-                    if ((e2.Length < i) && (e2.Length < e1.Length)) { result += e1[i];  }
-                }
-                else if(string.IsNullOrWhiteSpace(overflow))
-                {
-                     if (e1[i].Equals('0') && e2[i].Equals('0')) result += "0";
-                     if (e1[i].Equals('0') && e2[i].Equals('1')) result += "1";
-                     if (e1[i].Equals('1') && e2[i].Equals('0')) result += "1";
-                     if (e1[i].Equals('1') && e2[i].Equals('1'))
-                     {
-                         result += "0";
-                         overflow = "1";
-                     }
-                }
-                else
-                {
-                    result += "1";
-                    overflow = "";
-                }
             }
-            result += overflow;
-            Console.WriteLine(e1.ToString());
-            return reverseString(result);
+            return result;
+        }
 
+        public static string binarySubtraction(string str1,string str2)
+        {
+            string e1 = normalizeString(str1, str2)[0];
+            string e2 = normalizeString(str1, str2)[1];
+
+            e2 = binaryPlus( substituteBinary(e2),"1");
+
+            string result = binaryPlus(e1, e2);
+            Console.WriteLine(result);
+            result = result.Remove(0, 1);
+            return result;
+        }
+        
+        public static string substituteBinary(string str)
+        {
+            string result = str;
+            result = result.Replace('1', 'b');
+            result =  result.Replace('0', '1');
+            result = result.Replace('b', '0');
+
+            return result;
         }
 
 
+        public static string[] normalizeString(string ele1, string ele2)
+        {
+            int estranha1 = ele1.Length;
+            int estranha2 = ele2.Length;
+
+            if (ele1.Length > ele2.Length)
+            {
+                for (int i = 0; i < (estranha1 - estranha2); i++)
+                {
+                    ele2 = "0" + ele2;
+                }
+            }
+            else if (ele1.Length < ele2.Length)
+            {
+                for (int i = 0; i < (estranha2 - estranha1); i++)
+                {
+                    ele1 = "0" + ele1;
+                }
+            }
+            string[] r = new string[] { ele1, ele2 };
+            return r;
+        }
 
 
+        public static string binaryPlus(string ele1, string ele2)
+        {
+            char[] h = (normalizeString(ele1, ele2))[0].ToCharArray();
+            char[] s = (normalizeString(ele1, ele2))[1].ToCharArray();
+            string overflow = "";
 
+            string result = "";
+            for (int i = h.Length - 1; i >= 0; i--)
+            {
+                if (string.IsNullOrWhiteSpace(overflow))
+                {
+                    if (h[i].Equals('0') && s[i].Equals('0')) result = '0' + result;
+                    if (h[i].Equals('0') && s[i].Equals('1')) result = '1' + result;
+                    if (h[i].Equals('1') && s[i].Equals('0')) result = '1' + result;
+                    if (h[i].Equals('1') && s[i].Equals('1'))
+                    {
+                        overflow = "1";
+                        result = "0" + result;
+                    }
+                }
+                else if ((h[i].Equals('1') && s[i].Equals('0')) || h[i].Equals('0') && s[i].Equals('1'))
+                {
+                    overflow = "1";
+                    result = "0" + result;
+                }
+                else if ((h[i].Equals('0') && s[i].Equals('0')))
+                {
+                    overflow = "";
+                    result = "1" + result;
+                }
+                else if (h[i].Equals('1') && s[i].Equals('1'))
+                {
+                    overflow = "1";
+                    result = "1" + result;
+                }
+            }
+
+
+            return overflow + result;
+        }
 
         static string reverseString(string Word)
         {
