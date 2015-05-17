@@ -8,6 +8,52 @@ namespace CalcBinario_2003_VictorFernandes
 {
     public class Converter
     {
+        /// <summary>
+        /// Função que vê qual do dois valores é maior
+        /// </summary>
+        /// <param name="e1"> parametro a ser comparado</param>
+        /// <param name="e2">parametro </param>
+        /// <returns></returns>
+        public static bool binaryIsGreater(string e1, string e2)
+        {
+            if(binaryToDecimal(e1) > binaryToDecimal(e2))
+            {
+                return true;
+            }
+            else if (binaryToDecimal(e2) > binaryToDecimal(e1))
+            {
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
+       public static string[] binaryDivision(string e1,string e2)
+        {
+            
+            string index = "";
+
+            for(int i = 1;i < int.MaxValue;i++)
+            {
+                index = binaryMultiply(e2, decimalToBinary(i));
+                Console.WriteLine(index);
+                if (binaryIsGreater(index, e1))
+                {
+                    Console.WriteLine(index);
+                    return new string[2] {decimalToBinary(i-1),binarySubtraction(e1,binarySubtraction(index,e2))};
+                }
+                else if (index == e1)
+                {
+                    return new string[2] { decimalToBinary(i), "0" };
+                }
+            }
+            return new string[2];
+            
+        }
 
         public static string binaryMultiply(string str1 ,string str2)
         {
@@ -28,7 +74,6 @@ namespace CalcBinario_2003_VictorFernandes
             e2 = binaryPlus( substituteBinary(e2),"1");
 
             string result = binaryPlus(e1, e2);
-            Console.WriteLine(result);
             result = result.Remove(0, 1);
             return result;
         }

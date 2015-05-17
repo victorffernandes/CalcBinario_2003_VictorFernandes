@@ -16,7 +16,7 @@ namespace CalcBinario_2003_VictorFernandes
         public Form1()
         {
             InitializeComponent();
-            Console.WriteLine(Converter.binaryMultiply("11","100"));
+            Console.WriteLine(Converter.binaryDivision("10000","10")[0]);
         }
     }
 }
