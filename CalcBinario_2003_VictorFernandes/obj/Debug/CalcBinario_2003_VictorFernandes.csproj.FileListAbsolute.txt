@@ -6,3 +6,4 @@ C:\Users\Victor Fernandes\Desktop\Work\Projetos\CalcBinario_2003_VictorFernandes
 C:\Users\Victor Fernandes\Desktop\Work\Projetos\CalcBinario_2003_VictorFernandes\CalcBinario_2003_VictorFernandes\obj\Debug\CalcBinario_2003_VictorFernandes.exe
 C:\Users\Victor Fernandes\Desktop\Work\Projetos\CalcBinario_2003_VictorFernandes\CalcBinario_2003_VictorFernandes\obj\Debug\CalcBinario_2003_VictorFernandes.pdb
 C:\Users\Victor Fernandes\Desktop\Work\Projetos\CalcBinario_2003_VictorFernandes\CalcBinario_2003_VictorFernandes\bin\Debug\CalcBinario_2003_VictorFernandes.pdb
+C:\Users\Victor Fernandes\Desktop\Work\Projetos\CalcBinario_2003_VictorFernandes\CalcBinario_2003_VictorFernandes\obj\Debug\CalcBinario_2003_VictorFernandes.Form1.resources

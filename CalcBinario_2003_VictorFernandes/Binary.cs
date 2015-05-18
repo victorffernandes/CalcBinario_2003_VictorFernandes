@@ -40,10 +40,8 @@ namespace CalcBinario_2003_VictorFernandes
             for(int i = 1;i < int.MaxValue;i++)
             {
                 index = binaryMultiply(e2, decimalToBinary(i));
-                Console.WriteLine(index);
                 if (binaryIsGreater(index, e1))
                 {
-                    Console.WriteLine(index);
                     return new string[2] {decimalToBinary(i-1),binarySubtraction(e1,binarySubtraction(index,e2))};
                 }
                 else if (index == e1)
