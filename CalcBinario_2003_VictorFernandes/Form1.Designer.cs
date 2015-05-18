@@ -42,6 +42,9 @@
             this.secondHex = new System.Windows.Forms.Label();
             this.resultDec = new System.Windows.Forms.Label();
             this.resultHex = new System.Windows.Forms.Label();
+            this.decToBin = new System.Windows.Forms.TextBox();
+            this.convToBin = new System.Windows.Forms.Button();
+            this.resultDecToBin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // higher
@@ -174,11 +177,41 @@
             this.resultHex.TabIndex = 14;
             this.resultHex.Text = "00";
             // 
+            // decToBin
+            // 
+            this.decToBin.Location = new System.Drawing.Point(78, 226);
+            this.decToBin.Name = "decToBin";
+            this.decToBin.Size = new System.Drawing.Size(90, 20);
+            this.decToBin.TabIndex = 15;
+            this.decToBin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressedDecimal);
+            // 
+            // convToBin
+            // 
+            this.convToBin.Location = new System.Drawing.Point(194, 224);
+            this.convToBin.Name = "convToBin";
+            this.convToBin.Size = new System.Drawing.Size(116, 23);
+            this.convToBin.TabIndex = 16;
+            this.convToBin.Text = "decimalToBinary";
+            this.convToBin.UseVisualStyleBackColor = true;
+            this.convToBin.Click += new System.EventHandler(this.decimalToBin);
+            // 
+            // resultDecToBin
+            // 
+            this.resultDecToBin.AutoSize = true;
+            this.resultDecToBin.Location = new System.Drawing.Point(344, 229);
+            this.resultDecToBin.Name = "resultDecToBin";
+            this.resultDecToBin.Size = new System.Drawing.Size(19, 13);
+            this.resultDecToBin.TabIndex = 17;
+            this.resultDecToBin.Text = "00";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 262);
+            this.ClientSize = new System.Drawing.Size(647, 287);
+            this.Controls.Add(this.resultDecToBin);
+            this.Controls.Add(this.convToBin);
+            this.Controls.Add(this.decToBin);
             this.Controls.Add(this.resultHex);
             this.Controls.Add(this.resultDec);
             this.Controls.Add(this.secondHex);
@@ -216,6 +249,9 @@
         private System.Windows.Forms.Label secondHex;
         private System.Windows.Forms.Label resultDec;
         private System.Windows.Forms.Label resultHex;
+        private System.Windows.Forms.TextBox decToBin;
+        private System.Windows.Forms.Button convToBin;
+        private System.Windows.Forms.Label resultDecToBin;
     }
 }
 

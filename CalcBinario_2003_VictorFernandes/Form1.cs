@@ -75,5 +75,20 @@ namespace CalcBinario_2003_VictorFernandes
             secondDec.Text = Converter.binaryToDecimal(smaller.Text).ToString();
             secondHex.Text = Converter.binaryToHexadecimal(smaller.Text);
         }
+
+        private void decimalToBin(object sender, EventArgs e)
+        {
+            resultDecToBin.Text = Converter.decimalToBinary(double.Parse(decToBin.Text));
+        }
+
+        private void PressedDecimal(object sender, KeyPressEventArgs e)
+        {
+            string valid = "0123456789";
+            e.Handled = (valid.IndexOf(e.KeyChar) == -1);
+            if (e.KeyChar.Equals((char)8))
+            {
+                e.Handled = false;
+            }
+        }
     }
 }
